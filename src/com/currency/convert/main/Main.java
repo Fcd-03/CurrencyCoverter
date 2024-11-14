@@ -1,6 +1,4 @@
 package com.currency.convert.main;
-
-import java.lang.invoke.SwitchPoint;
 import java.util.Scanner;
 
 public class Main {
