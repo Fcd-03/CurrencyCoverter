@@ -12,7 +12,7 @@ public class ConsultCoins {
 
     public Currentcy showTrade(String basecode, String targetcode) {
 
-        URI link = URI.create("https://v6.exchangerate-api.com/v6/99b5587dcdcfbff0acb5b853/pair/" + basecode + "/" + targetcode);
+        URI link = URI.create("https://v6.exchangerate-api.com/v6/99b5587dcdcfbff0acb5b853/pair/"+basecode+"/"+targetcode);
 
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
