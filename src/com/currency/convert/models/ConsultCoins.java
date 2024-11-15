@@ -1,5 +1,6 @@
-package com.currency.convert.main;
+package com.currency.convert.models;
 
+import com.currency.convert.records.Currency;
 import com.google.gson.Gson;
 
 import java.io.IOException;
@@ -10,7 +11,7 @@ import java.net.http.HttpResponse;
 
 public class ConsultCoins {
 
-    public Currentcy showTrade(String basecode, String targetcode) {
+    public Currency showTrade(String basecode, String targetcode) {
 
         URI link = URI.create("https://v6.exchangerate-api.com/v6/99b5587dcdcfbff0acb5b853/pair/"+basecode+"/"+targetcode);
 
@@ -23,7 +24,7 @@ public class ConsultCoins {
             HttpResponse<String> response = client
                     .send(request, HttpResponse.BodyHandlers.ofString());
 
-            return new Gson().fromJson(response.body(), Currentcy.class);
+            return new Gson().fromJson(response.body(), Currency.class);
         } catch (IOException | InterruptedException e) {
             throw new RuntimeException("Its hasn't possible to realized the conversion");
         }

@@ -1,4 +1,9 @@
 package com.currency.convert.main;
+
+import com.currency.convert.calculator.Calculator;
+import com.currency.convert.models.ConsultCoins;
+import com.currency.convert.records.Currency;
+
 import java.util.Scanner;
 
 public class Main {
@@ -7,6 +12,10 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         //Class ConsulCoins scanner instance
         ConsultCoins myCoins = new ConsultCoins();
+        Calculator calculating = new Calculator();
+
+        double result;
+        double ammount;
 
         boolean running = true;
         while (running) {
@@ -29,41 +38,56 @@ public class Main {
                     //Show message to receive mound to convert
                     System.out.println(amountMss);
                     //Received mound
-                    double ammount = scanner.nextInt();
+                    ammount = scanner.nextInt();
                     //Pass parameter to consulting API
-                    Currentcy trade1 = myCoins.showTrade("USD", "ARS");
+                    Currency trade1 = myCoins.showTrade("USD", "ARS");
                     //Catch the conversion. Using the conversion between base and target currency plus mount inserted
-                    double ammountConverted = ammount * trade1.conversion_rate();
-                    //Show the balance of the two currency and the resul of the conversion mound
-                    System.out.println(trade1 + " The ammount " + ammount + " converted is " + ammountConverted + " USD");
+                    result = calculating.makeCalculation(ammount, trade1.conversion_rate());
+                    System.out.println(calculating.showMss(trade1, ammount, result));
                     break;
                 case 2:
+                    //Show message to receive mound to convert
                     System.out.println(amountMss);
-                    double ammount2 = scanner.nextInt();
-                    Currentcy trade2 = myCoins.showTrade("DOP", "USD");
-                    double result2 = ammount2 * trade2.conversion_rate();
-                    System.out.println(trade2 + "The ammount converted is " + result2);
+                    //Received mound
+                    ammount = scanner.nextInt();
+                    //Pass parameter to consulting API
+                    Currency trade2 = myCoins.showTrade("DOP", "USD");
+                    //Catch the conversion. Using the conversion between base and target currency plus mount inserted
+                    result = calculating.makeCalculation(ammount, trade2.conversion_rate());
+                    System.out.println(calculating.showMss(trade2, ammount, result));
                     break;
                 case 3:
+                    //Show message to receive mound to convert
                     System.out.println(amountMss);
-                    double ammount3 = scanner.nextInt();
-                    Currentcy trade3 = myCoins.showTrade("USD", "MXN");
-                    double result3 = ammount3 * trade3.conversion_rate();
-                    System.out.println(trade3 + "The ammount converted is " + result3);
+                    //Received mound
+                    ammount = scanner.nextInt();
+                    //Pass parameter to consulting API
+                    Currency trade3 = myCoins.showTrade("USD", "MXN");
+                    //Catch the conversion. Using the conversion between base and target currency plus mount inserted
+                    result = calculating.makeCalculation(ammount, trade3.conversion_rate());
+                    System.out.println(calculating.showMss(trade3, ammount, result));
                     break;
                 case 4:
+                    //Show message to receive mound to convert
                     System.out.println(amountMss);
-                    double ammount4 = scanner.nextInt();
-                    Currentcy trade4 = myCoins.showTrade("USD", "BRL");
-                    double result4 = ammount4 * trade4.conversion_rate();
-                    System.out.println(trade4 + "The ammount converted is " + result4);
+                    //Received mound
+                    ammount = scanner.nextInt();
+                    //Pass parameter to consulting API
+                    Currency trade4 = myCoins.showTrade("USD", "BRL");
+                    //Catch the conversion. Using the conversion between base and target currency plus mount inserted
+                    result = calculating.makeCalculation(ammount, trade4.conversion_rate());
+                    System.out.println(calculating.showMss(trade4, ammount, result));
                     break;
                 case 5:
+                    //Show message to receive mound to convert
                     System.out.println(amountMss);
-                    double ammount5 = scanner.nextInt();
-                    Currentcy trade5 = myCoins.showTrade("USD", "GBP");
-                    double result5 = ammount5 * trade5.conversion_rate();
-                    System.out.println(trade5 + "The ammount converted is " + result5);
+                    //Received mound
+                    ammount = scanner.nextInt();
+                    //Pass parameter to consulting API
+                    Currency trade5 = myCoins.showTrade("USD", "GBP");
+                    //Catch the conversion. Using the conversion between base and target currency plus mount inserted
+                    result = calculating.makeCalculation(ammount, trade5.conversion_rate());
+                    System.out.println(calculating.showMss(trade5, ammount, result));
                     break;
                 case 6:
                     running = false;
